@@ -1,65 +1,160 @@
-import Image from "next/image";
-
-export default function Home() {
+export default function HomePage() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.js file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
+    <main>
+
+      {/* HERO SECTION */}
+      <section className="bg-background">
+        <div className="max-w-7xl mx-auto px-6 py-28 grid md:grid-cols-2 gap-16 items-center">
+
+          <div>
+            <h1 className="text-4xl md:text-5xl font-serif leading-tight text-primary">
+              Anxiety & Trauma Therapy in Austin, TX
+            </h1>
+
+            <p className="mt-6 text-lg text-muted max-w-md">
+              Compassionate, trauma-informed therapy for adults and couples.
+              Supporting anxiety relief, emotional healing, and meaningful connection.
+            </p>
+
             <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
+              href="/contact"
+              className="inline-block mt-10 bg-accent text-white px-7 py-3 rounded-md text-lg"
             >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
+              Book a Consultation
+            </a>
+          </div>
+
+          <div className="flex justify-center">
+            <img
+              src="https://images.unsplash.com/photo-1607746882042-944635dfe10e?auto=format&fit=crop&w=800&q=80"
+              alt="Therapist portrait"
+              className="w-full max-w-md rounded-2xl object-cover shadow-lg"
             />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+          </div>
+
         </div>
-      </main>
-    </div>
+      </section>
+
+      {/* SERVICES SECTION */}
+      <section className="bg-white">
+        <div className="max-w-7xl mx-auto px-6 py-28">
+
+          <div className="mb-16 max-w-xl">
+            <h2 className="text-3xl md:text-4xl font-serif text-primary">
+              Therapy Services
+            </h2>
+            <p className="mt-4 text-muted text-lg">
+              Thoughtful, personalized support designed around your needs.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-10">
+
+            {[
+              {
+                title: "Anxiety & Stress Therapy",
+                text: "Support for chronic worry, stress, and overwhelm using practical tools.",
+                img: "https://images.unsplash.com/photo-1584467735871-bb3b1d7b0d2b?auto=format&fit=crop&w=800&q=80"
+              },
+              {
+                title: "Trauma & PTSD Therapy",
+                text: "Trauma-informed therapy focused on safety, trust, and healing.",
+                img: "https://images.unsplash.com/photo-1590650153855-d9e808231d41?auto=format&fit=crop&w=800&q=80"
+              },
+              {
+                title: "Couples Counseling",
+                text: "Improve communication and strengthen emotional connection.",
+                img: "https://images.unsplash.com/photo-1524758631624-e2822e304c36?auto=format&fit=crop&w=800&q=80"
+              }
+            ].map((item, index) => (
+              <div
+                key={index}
+                className="bg-background rounded-2xl overflow-hidden shadow-sm hover:shadow-md transition"
+              >
+                <img
+                  src={item.img}
+                  alt={item.title}
+                  className="w-full h-56 object-cover"
+                />
+                <div className="p-6">
+                  <h3 className="text-xl font-serif text-primary">
+                    {item.title}
+                  </h3>
+                  <p className="mt-3 text-muted">
+                    {item.text}
+                  </p>
+                </div>
+              </div>
+            ))}
+
+          </div>
+        </div>
+      </section>
+
+      {/* OUR OFFICE SECTION */}
+      <section className="bg-background">
+        <div className="max-w-7xl mx-auto px-6 py-28">
+
+          <div className="mb-16 max-w-xl">
+            <h2 className="text-3xl md:text-4xl font-serif text-primary">
+              Our Office
+            </h2>
+            <p className="mt-4 text-lg text-muted">
+              A calm, welcoming space designed to help you feel safe, comfortable, and supported.
+            </p>
+          </div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            <img
+              src="https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=800&q=80"
+              className="rounded-2xl h-64 w-full object-cover shadow-md"
+              alt="Therapy office interior"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1598373182133-52452f7691ef?auto=format&fit=crop&w=800&q=80"
+              className="rounded-2xl h-64 w-full object-cover shadow-md"
+              alt="Therapy room seating"
+            />
+            <img
+              src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800&q=80"
+              className="rounded-2xl h-64 w-full object-cover shadow-md"
+              alt="Counseling office environment"
+            />
+          </div>
+
+        </div>
+      </section>
+
+      {/* FINAL CTA WITH IMAGE */}
+      <section
+        className="relative bg-cover bg-center"
+        style={{
+          backgroundImage:
+            "url('https://images.unsplash.com/photo-1506126613408-eca07ce68773?auto=format&fit=crop&w=1600&q=80')",
+        }}
+      >
+        <div className="bg-black/60">
+          <div className="max-w-4xl mx-auto px-6 py-32 text-center text-white">
+
+            <h2 className="text-3xl md:text-4xl font-serif">
+              Begin Therapy with Dr. Maya Reynolds
+            </h2>
+
+            <p className="mt-6 text-lg max-w-2xl mx-auto">
+              If you’re feeling overwhelmed or ready for change, therapy can help you move forward.
+            </p>
+
+            <a
+                href="/contact"
+                className="inline-block mt-10 bg-white text-black px-8 py-4 rounded-md text-lg font-medium"
+              >
+                Book a Consultation
+            </a>
+
+          </div>
+        </div>
+      </section>
+
+    </main>
   );
 }
